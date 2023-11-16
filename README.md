@@ -1,2 +1,1 @@
-# outline-vim
-vscode vim outline 
+# Outline Map

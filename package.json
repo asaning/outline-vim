@@ -1,0 +1,210 @@
+{
+	"name": "outline-vim",
+	"displayName": "Outline",
+	"description": "A visual outline map for vim in vscode",
+	"version": "1.0.0",
+	"repository": {
+		"url": "https://github.com/asaning/outline-vim"
+	},
+	"keywords": [
+		"outline",
+		"map",
+		"minimap",
+		"Thumbnail",
+		"vim"
+	],
+	"author": {
+		"name": "asaning"
+	},
+	"browser": "./out/extension/index.js",
+	"icon": "icon/outline-map.png",
+	"publisher": "asaning",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onView:outline-map-view"
+	],
+	"main": "./out/extension/index.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "outline-map",
+					"title": "Outline",
+					"icon": "icon/outline-map-24.svg"
+				}
+			]
+		},
+		"views": {
+			"outline-map": [
+				{
+					"type": "webview",
+					"id": "outline-map-view",
+					"name": "Outline"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Outline Map",
+			"properties": {
+				"outline-map.color": {
+					"type": "object",
+					"default": {
+						"visibleRange": "var(--vscode-scrollbarSlider-background)",
+						"focusingItem": "var(--vscode-editorCursor-foreground)",
+						"module": "var(--vscode-symbolIcon-moduleForeground)",
+						"namespace": "var(--vscode-symbolIcon-namespaceForeground)",
+						"package": "var(--vscode-symbolIcon-packageForeground)",
+						"class": "var(--vscode-symbolIcon-classForeground)",
+						"method": "var(--vscode-symbolIcon-methodForeground)",
+						"property": "var(--vscode-symbolIcon-propertyForeground)",
+						"field": "var(--vscode-symbolIcon-fieldForeground)",
+						"constructor": "var(--vscode-symbolIcon-constructorForeground)",
+						"enum": "var(--vscode-symbolIcon-enumeratorForeground)",
+						"interface": "var(--vscode-symbolIcon-interfaceForeground)",
+						"function": "var(--vscode-symbolIcon-functionForeground)",
+						"variable": "var(--vscode-symbolIcon-variableForeground)",
+						"constant": "var(--vscode-symbolIcon-constantForeground)",
+						"string": "var(--vscode-symbolIcon-stringForeground)",
+						"number": "var(--vscode-symbolIcon-numberForeground)",
+						"boolean": "var(--vscode-symbolIcon-booleanForeground)",
+						"array": "var(--vscode-symbolIcon-arrayForeground)",
+						"object": "var(--vscode-symbolIcon-objectForeground)",
+						"key": "var(--vscode-symbolIcon-keyForeground)",
+						"null": "var(--vscode-symbolIcon-nullForeground)",
+						"enummember": "var(--vscode-symbolIcon-enumMemberForeground)",
+						"struct": "var(--vscode-symbolIcon-structForeground)",
+						"event": "var(--vscode-symbolIcon-eventForeground)",
+						"operator": "var(--vscode-symbolIcon-operatorForeground)",
+						"typeparameter": "var(--vscode-symbolIcon-typeParameterForeground)"
+					},
+					"description": "override colors of specific symbols and some ui components.",
+					"properties": {
+						"visibleRange": {
+							"type": "string",
+							"description": "The color of the visible range in the outline."
+						},
+						"focusingItem": {
+							"type": "string",
+							"description": "The color of the focusing item in the outline."
+						},
+						"module": {
+							"type": "string"
+						},
+						"namespace": {
+							"type": "string"
+						},
+						"package": {
+							"type": "string"
+						},
+						"class": {
+							"type": "string"
+						},
+						"method": {
+							"type": "string"
+						},
+						"property": {
+							"type": "string"
+						},
+						"field": {
+							"type": "string"
+						},
+						"constructor": {
+							"type": "string"
+						},
+						"enum": {
+							"type": "string"
+						},
+						"interface": {
+							"type": "string"
+						},
+						"function": {
+							"type": "string"
+						},
+						"variable": {
+							"type": "string"
+						},
+						"constant": {
+							"type": "string"
+						},
+						"string": {
+							"type": "string"
+						},
+						"number": {
+							"type": "string"
+						},
+						"boolean": {
+							"type": "string"
+						},
+						"array": {
+							"type": "string"
+						},
+						"object": {
+							"type": "string"
+						},
+						"key": {
+							"type": "string"
+						},
+						"null": {
+							"type": "string"
+						},
+						"enummember": {
+							"type": "string"
+						},
+						"struct": {
+							"type": "string"
+						},
+						"event": {
+							"type": "string"
+						},
+						"operator": {
+							"type": "string"
+						},
+						"typeparameter": {
+							"type": "string"
+						}
+					}
+			}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:publish": "npm run package-web && vsce package",
+		"compile-web": "webpack",
+		"watch-web": "webpack --watch",
+		"package-web": "webpack --mode production --devtool hidden-source-map",
+		"lint": "eslint src --ext ts",
+		"run-in-browser": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
+	},
+	"devDependencies": {
+		"@types/mocha": "^9.1.1",
+		"@types/node": "^18.14.0",
+		"@types/vscode": "^1.60.0",
+		"@types/webpack-env": "^1.17.0",
+		"@typescript-eslint/eslint-plugin": "^5.53.0",
+		"@typescript-eslint/parser": "^5.53.0",
+		"@vscode/test-web": "^0.0.26",
+		"assert": "^2.0.0",
+		"css-loader": "^6.7.3",
+		"eslint": "^8.18.0",
+		"mocha": "^10.0.0",
+		"node-sass": "^8.0.0",
+		"process": "^0.11.10",
+		"sass-loader": "^13.2.0",
+		"style-loader": "^3.3.1",
+		"ts-loader": "^9.3.1",
+		"typescript": "^4.7.4",
+		"webpack": "^5.73.0",
+		"webpack-cli": "^4.10.0"
+	},
+	"dependencies": {
+		"@types/vscode-webview": "^1.57.1",
+		"@vscode/codicons": "^0.0.31",
+		"overlayscrollbars": "^2.1.0"
+	}
+}
